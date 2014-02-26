@@ -191,11 +191,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nfi-Fp-1Mv">
+                                <rect key="frame" x="20" y="228" width="280" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Upload" id="ucV-XO-tYD"/>
                     <connections>
+                        <outlet property="imageTest" destination="Nfi-Fp-1Mv" id="eso-aX-oge"/>
                         <outlet property="userMessage" destination="9HE-Kn-AKp" id="kUg-Am-zcn"/>
                         <outlet property="website" destination="Afn-XH-1QD" id="tJN-U3-G9a"/>
                     </connections>

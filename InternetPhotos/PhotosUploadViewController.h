@@ -11,6 +11,7 @@
 @interface PhotosUploadViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *userMessage;
 @property (weak, nonatomic) IBOutlet UITextField *website;
+@property (weak, nonatomic) IBOutlet UIImageView *imageTest;
 - (IBAction)UplaodAction:(UIButton *)sender;
 
 @end
