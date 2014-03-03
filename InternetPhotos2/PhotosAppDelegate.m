@@ -10,6 +10,7 @@
 #import "PhotosMasterViewController.h"
 #import "Photo.h"
 #import "Website.h"
+#import "DownloadingPhoto.h"
 
 @implementation PhotosAppDelegate
 
@@ -17,8 +18,13 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+static int webID;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    webID = 1;
+    // NSLog(@"%@", [DownloadingPhoto downloadPhotoWithURL:nil withImagePlace:nil]);
+    
     /*NSManagedObjectContext *context = [self managedObjectContext];
     Website *WebsiteInfo = [NSEntityDescription
                                        insertNewObjectForEntityForName:@"Website"

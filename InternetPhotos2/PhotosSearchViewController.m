@@ -1,25 +1,27 @@
 //
-//  PhotosMasterViewController.m
+//  PhotosSearchViewController.m
 //  InternetPhotos2
 //
-//  Created by Pavlo Kytsmey on 2/27/14.
+//  Created by Pavlo Kytsmey on 3/2/14.
 //  Copyright (c) 2014 Pavlo Kytsmey. All rights reserved.
 //
 
-#import "PhotosMasterViewController.h"
+#import "PhotosSearchViewController.h"
+#import "DownloadingPhoto.h"
 #import "Photo.h"
 #import "Website.h"
-#import "PhotosSearchViewController.h"
-#import "PhotosAddViewController.h"
+#import "PhotosImageViewController.h"
 
-@interface PhotosMasterViewController ()
+@interface PhotosSearchViewController ()
+@property (nonatomic, weak) id delegate;
 
 @end
 
-@implementation PhotosMasterViewController
+@implementation PhotosSearchViewController
 
 @synthesize managedObjectContext;
 @synthesize websites;
+@synthesize delegate = _delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,11 +36,14 @@
 {
     [super viewDidLoad];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    _delegate = [[UIApplication sharedApplication] delegate];
+    
+    
     NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"Website" inManagedObjectContext:managedObjectContext];
+                                   entityForName:@"Website" inManagedObjectContext:[_delegate managedObjectContext]];
     [fetchRequest setEntity:entity];
     NSError *error;
-    self.websites = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    self.websites = [[_delegate managedObjectContext] executeFetchRequest:fetchRequest error:&error];
     self.title = @"Websites";
 }
 
@@ -54,62 +59,43 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    // return [self.websites count];
-    return 2;
+    return [self.websites count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    //Website* w = [websites objectAtIndex:section];
-    //return [w.ownPhoto count];
-    return 1;
+    Website* w = [websites objectAtIndex:section];
+    return [w.ownPhoto count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
-    }
-    /*Website *info = [websites objectAtIndex:indexPath.section];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    //NSLog(@"in2");
+    //if (!cell) {
+       UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+    //}
+    Website *info = [websites objectAtIndex:indexPath.section];
     NSArray* photos = [info.ownPhoto allObjects];
     Photo* p = [photos objectAtIndex:indexPath.row];
     cell.textLabel.text = p.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",
-                                 p.path];
-    return cell;*/
-    if (indexPath.section == 0) {
-        cell.textLabel.text = @"Add photo";
-        cell.detailTextLabel.text = @"from website";
-    }else{
-        cell.textLabel.text = @"Find all photos";
-        cell.detailTextLabel.text = @"from website";
-    }
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",p.path];
     return cell;
 }
 
 - (NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
-    // Website* info = [websites objectAtIndex:section];
-    // return info.name;
-    if (section == 0) {
-        return @"Download";
-    }else{
-        return @"Search";
-    }
+    Website* info = [websites objectAtIndex:section];
+    return info.name;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-        PhotosAddViewController* newView = [PhotosAddViewController new];
-        [self.navigationController pushViewController:newView animated:YES];
-    }else{
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        PhotosSearchViewController * pictureView = [[PhotosSearchViewController alloc] init];
-        [self.navigationController pushViewController:pictureView animated:YES];
-    }
+    Website * web = [websites objectAtIndex:indexPath.section];
+    [DownloadingPhoto setPhotoToShowWithWebsite:web withIndex:indexPath.row withDB:_delegate];
+    PhotosImageViewController* newView = [PhotosImageViewController new];
+    [self.navigationController pushViewController:newView animated:YES];
 }
 
 /*

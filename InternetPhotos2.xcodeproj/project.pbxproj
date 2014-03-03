@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A79D316018C4966E000A2C42 /* PhotosImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A79D315F18C4966E000A2C42 /* PhotosImageViewController.m */; };
+		A79D316318C4988C000A2C42 /* PhotosAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A79D316218C4988C000A2C42 /* PhotosAddViewController.m */; };
+		A7BFDA4A18C37C3E0035FB59 /* PhotosSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFDA4918C37C3E0035FB59 /* PhotosSearchViewController.m */; };
+		A7BFDA4D18C3857D0035FB59 /* DownloadingPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFDA4C18C3857D0035FB59 /* DownloadingPhoto.m */; };
 		A7C8525218BF5E4D004032D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C8525118BF5E4D004032D0 /* Foundation.framework */; };
 		A7C8525418BF5E4D004032D0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C8525318BF5E4D004032D0 /* CoreGraphics.framework */; };
 		A7C8525618BF5E4D004032D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C8525518BF5E4D004032D0 /* UIKit.framework */; };
@@ -40,6 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A79D315E18C4966E000A2C42 /* PhotosImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosImageViewController.h; sourceTree = "<group>"; };
+		A79D315F18C4966E000A2C42 /* PhotosImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosImageViewController.m; sourceTree = "<group>"; };
+		A79D316118C4988C000A2C42 /* PhotosAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosAddViewController.h; sourceTree = "<group>"; };
+		A79D316218C4988C000A2C42 /* PhotosAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosAddViewController.m; sourceTree = "<group>"; };
+		A7BFDA4818C37C3E0035FB59 /* PhotosSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosSearchViewController.h; sourceTree = "<group>"; };
+		A7BFDA4918C37C3E0035FB59 /* PhotosSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosSearchViewController.m; sourceTree = "<group>"; };
+		A7BFDA4B18C3857D0035FB59 /* DownloadingPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadingPhoto.h; sourceTree = "<group>"; };
+		A7BFDA4C18C3857D0035FB59 /* DownloadingPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadingPhoto.m; sourceTree = "<group>"; };
 		A7C8524E18BF5E4D004032D0 /* InternetPhotos2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternetPhotos2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C8525118BF5E4D004032D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7C8525318BF5E4D004032D0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -141,6 +153,14 @@
 				A7C8525A18BF5E4D004032D0 /* Supporting Files */,
 				A7C8529218BF5ED0004032D0 /* PhotosMasterViewController.h */,
 				A7C8529318BF5ED0004032D0 /* PhotosMasterViewController.m */,
+				A7BFDA4B18C3857D0035FB59 /* DownloadingPhoto.h */,
+				A7BFDA4C18C3857D0035FB59 /* DownloadingPhoto.m */,
+				A7BFDA4818C37C3E0035FB59 /* PhotosSearchViewController.h */,
+				A7BFDA4918C37C3E0035FB59 /* PhotosSearchViewController.m */,
+				A79D315E18C4966E000A2C42 /* PhotosImageViewController.h */,
+				A79D315F18C4966E000A2C42 /* PhotosImageViewController.m */,
+				A79D316118C4988C000A2C42 /* PhotosAddViewController.h */,
+				A79D316218C4988C000A2C42 /* PhotosAddViewController.m */,
 			);
 			path = InternetPhotos2;
 			sourceTree = "<group>";
@@ -274,10 +294,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C8529A18BF741F004032D0 /* Photo.m in Sources */,
+				A79D316318C4988C000A2C42 /* PhotosAddViewController.m in Sources */,
 				A7C8526018BF5E4D004032D0 /* main.m in Sources */,
 				A7C8526418BF5E4D004032D0 /* PhotosAppDelegate.m in Sources */,
 				A7C8529D18BF74D6004032D0 /* Website.m in Sources */,
+				A7BFDA4A18C37C3E0035FB59 /* PhotosSearchViewController.m in Sources */,
+				A7BFDA4D18C3857D0035FB59 /* DownloadingPhoto.m in Sources */,
 				A7C8526D18BF5E4D004032D0 /* InternetPhotos2.xcdatamodeld in Sources */,
+				A79D316018C4966E000A2C42 /* PhotosImageViewController.m in Sources */,
 				A7C8529418BF5ED0004032D0 /* PhotosMasterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +521,7 @@
 				A7C8528E18BF5E4D004032D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7C8528F18BF5E4D004032D0 /* Build configuration list for PBXNativeTarget "InternetPhotos2Tests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +530,7 @@
 				A7C8529118BF5E4D004032D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
