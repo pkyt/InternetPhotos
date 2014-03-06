@@ -113,11 +113,7 @@ static Photo * photoToShow;
 
 
 + (NSString*)downloadPhotoWithURL:(NSString*)path withImagePlace:(UIImageView*)imageView{
-    // NSString* stringURL = @"http://www.servethehome.com/wp-content/uploads/2013/01/STH-104-600.png";
     NSString* stringURL = path;
-    NSLog(@"%@", [[NSBundle mainBundle] bundlePath]);
-    
-    
     NSURL* url = [NSURL URLWithString:stringURL];
     NSData* urlData = [NSData dataWithContentsOfURL:url];
     
